@@ -4,147 +4,119 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Mail, Sparkles, Code, Link2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { fadeInUp, fadeInLeft, fadeInRight, floatAnimation, staggerContainer, scaleIn } from '@/lib/animations';
+import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-      
-      {/* Floating Particles */}
-      <motion.div
-        variants={floatAnimation}
-        animate="visible"
-        className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
-      />
-      <motion.div
-        variants={floatAnimation}
-        animate="visible"
-        transition={{ delay: 1 }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-      />
-      <motion.div
-        variants={floatAnimation}
-        animate="visible"
-        transition={{ delay: 2 }}
-        className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl"
-      />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise-bg">
+      {/* Dynamic Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute top-[40%] right-[10%] w-[400px] h-[400px] rounded-full bg-purple-500/20 blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
+        <div className="absolute -bottom-[10%] left-[30%] w-[600px] h-[600px] rounded-full bg-pink-500/10 blur-[150px] mix-blend-screen animate-pulse" style={{ animationDuration: '5s' }} />
+      </div>
+
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03] dark:opacity-[0.05]" />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="max-w-6xl mx-auto"
+          className="max-w-6xl mx-auto flex flex-col items-center"
         >
           <motion.div variants={fadeInUp} className="text-center mb-8">
-            <Badge variant="outline" className="mb-4 px-4 py-2 text-sm border-primary/50 bg-primary/10">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Available for new opportunities
+            <Badge variant="outline" className="mb-4 px-5 py-2.5 text-sm md:text-base border-primary/40 bg-primary/10 backdrop-blur-md text-primary-foreground font-medium rounded-full shadow-[0_0_20px_rgba(var(--primary-rgb),0.2)] flex items-center gap-2">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+              </span>
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-foreground">Available for new opportunities</span>
             </Badge>
           </motion.div>
 
-          <motion.h1
-            variants={fadeInUp}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-center leading-tight"
-          >
-            <span className="gradient-text">Prem Kumar</span>
-          </motion.h1>
+          <motion.div variants={fadeInUp} className="text-center relative">
+            <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-extrabold mb-6 tracking-tight leading-[1.1]">
+              <span className="text-foreground">Hi, I'm </span>
+              <span className="gradient-text drop-shadow-lg">Prem Kumar</span>
+            </h1>
+          </motion.div>
 
           <motion.p
             variants={fadeInUp}
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-center text-muted-foreground"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-center text-muted-foreground/80 tracking-wide"
           >
-            Full Stack Developer
+            Full Stack <span className="text-foreground">Developer</span>
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-center text-muted-foreground mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Building Scalable Software Solutions with Modern Technologies
-          </motion.p>
-
-          <motion.p
-            variants={fadeInUp}
-            className="text-base md:text-lg text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
-          >
-            I develop high-performance web applications, enterprise solutions, and user-focused digital experiences.
+            I architect and develop high-performance web applications, scalable enterprise solutions, and immersive digital experiences that solve real-world problems.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24"
           >
-            <Button size="lg" className="group text-lg px-8 py-6">
-              View Projects
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button size="lg" className="group text-lg px-8 py-7 rounded-2xl shadow-[0_0_30px_-5px_rgba(var(--primary-rgb),0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--primary))] transition-all duration-300">
+              Explore My Work
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 group">
-              <Download className="mr-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            <Button size="lg" variant="outline" className="text-lg px-8 py-7 rounded-2xl group border-border/50 hover:bg-white/5 backdrop-blur-sm transition-all duration-300">
+              <Download className="mr-2 w-5 h-5 group-hover:-translate-y-1 transition-transform" />
               Download Resume
             </Button>
           </motion.div>
 
-          {/* Stats Cards */}
+          {/* Stats Cards - Redesigned to floating glass cards */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl mx-auto"
           >
             {[
               { value: '1.5+', label: 'Years Experience' },
               { value: '10+', label: 'Projects' },
               { value: '15+', label: 'Technologies' },
-              { value: '∞', label: 'Continuous Learner' },
+              { value: '100%', label: 'Commitment' },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 variants={scaleIn}
-                className="glass-card p-6 rounded-2xl text-center hover:scale-105 transition-transform"
+                className="group relative"
               >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-sm md:text-base text-muted-foreground">{stat.label}</div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative glass-card p-8 rounded-3xl text-center hover:-translate-y-2 transition-all duration-500 border border-white/10 dark:border-white/5 bg-white/5 hover:bg-white/10">
+                  <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-3">{stat.value}</div>
+                  <div className="text-sm md:text-base font-medium text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                </div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex justify-center gap-4 mt-12"
-          >
-            <Button variant="ghost" size="icon" className="h-12 w-12 rounded-full">
-              <Code className="h-6 w-6" />
-            </Button>
-            <Button variant="ghost" size="icon" className="h-12 w-12 rounded-full">
-              <Link2 className="h-6 w-6" />
-            </Button>
-            <Button variant="ghost" size="icon" className="h-12 w-12 rounded-full">
-              <Mail className="h-6 w-6" />
-            </Button>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Modern Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center pt-2">
+        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">Scroll</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-primary/50 to-transparent relative overflow-hidden">
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-3 bg-primary rounded-full"
+            animate={{ top: ['-100%', '100%'] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            className="absolute left-0 w-full h-1/2 bg-primary"
           />
         </div>
       </motion.div>
     </section>
   );
 }
+
