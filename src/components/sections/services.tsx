@@ -5,14 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 import { services } from '@/data/portfolio';
-import { 
-  Layers, 
-  Globe, 
-  Database, 
-  Code2, 
-  CheckCircle, 
+import {
+  Layers,
+  Globe,
+  Database,
+  Code2,
+  CheckCircle,
   TrendingUp,
-  LucideIcon 
+  LucideIcon
 } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -26,9 +26,9 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function Services() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="services" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           variants={staggerContainer}

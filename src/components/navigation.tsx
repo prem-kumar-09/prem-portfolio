@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { personalInfo } from '@/data/portfolio';
+import { personalInfo, navItems } from '@/data/portfolio';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,15 +37,6 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -103,9 +94,11 @@ export function Navigation() {
             </div>
 
             <ThemeToggle />
-            <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:brightness-110 shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)] border-none">
-              Hire Me
-            </Button>
+            <a href={personalInfo.hireMeUrl}>
+              <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:brightness-110 shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)] border-none">
+                Hire Me
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -148,9 +141,11 @@ export function Navigation() {
                   {item.name}
                 </a>
               ))}
-              <Button className="w-full rounded-xl mt-2 bg-primary">
-                Hire Me
-              </Button>
+              <a href={personalInfo.hireMeUrl} className="w-full">
+                <Button className="w-full rounded-xl mt-2 bg-primary">
+                  Hire Me
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}

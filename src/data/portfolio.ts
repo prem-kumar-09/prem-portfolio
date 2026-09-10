@@ -1,5 +1,14 @@
 import { Skill, Experience, Project, Service, Certification, Testimonial } from '@/types';
 
+export const navItems = [
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Services', href: '#services' },
+  { name: 'Contact', href: '#contact' },
+];
+
 export const skills: Skill[] = [
   // Frontend
   { name: 'HTML', level: 95, category: 'frontend', icon: 'Code' },
@@ -195,6 +204,7 @@ export const personalInfo = {
   linkedin: 'https://linkedin.com/in/premkumar',
   github: 'https://github.com/premkumar',
   phone: '+91 98765 43210',
+  hireMeUrl: 'mailto:premkumar@example.com',
   heroDescription: 'I architect and develop high-performance web applications, scalable enterprise solutions, and immersive digital experiences that solve real-world problems.',
   professionalSummary: [
     'I am a passionate Full Stack Developer with 1.5+ years of experience in building scalable web applications and enterprise solutions. My expertise spans across modern frontend technologies like React and Next.js, as well as robust backend systems using C# and ASP.NET MVC.',

@@ -30,7 +30,7 @@ export function Skills() {
   const categories = ['frontend', 'backend', 'database', 'tools', 'testing'] as const;
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="skills" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">

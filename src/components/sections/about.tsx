@@ -9,7 +9,7 @@ import { personalInfo, experiences } from '@/data/portfolio';
 
 export function About() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
