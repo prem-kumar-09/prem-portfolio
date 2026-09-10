@@ -6,7 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
-import { skills } from '@/data/portfolio';
+import { skills, personalInfo } from '@/data/portfolio';
+import * as Icons from 'lucide-react';
 import { Code, Server, Database, Wrench, CheckCircle } from 'lucide-react';
 
 const categoryIcons = {
@@ -31,7 +32,7 @@ export function Skills() {
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           variants={staggerContainer}
@@ -78,8 +79,8 @@ export function Skills() {
                           <CardHeader>
                             <CardTitle className="flex items-center justify-between">
                               <span className="text-lg">{skill.name}</span>
-                              <Badge 
-                                variant="outline" 
+                              <Badge
+                                variant="outline"
                                 className={`bg-gradient-to-r ${categoryColors[category]} text-white border-0`}
                               >
                                 {skill.level}%
@@ -87,8 +88,8 @@ export function Skills() {
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
-                            <Progress 
-                              value={skill.level} 
+                            <Progress
+                              value={skill.level}
                               className="h-2 mb-4"
                             />
                             <div className="flex items-center justify-between text-sm text-muted-foreground">
@@ -109,24 +110,8 @@ export function Skills() {
             variants={fadeInUp}
             className="mt-16 grid md:grid-cols-3 gap-6"
           >
-            {[
-              {
-                title: 'Frontend Mastery',
-                description: 'Building responsive and performant user interfaces with modern frameworks',
-                icon: Code,
-              },
-              {
-                title: 'Backend Excellence',
-                description: 'Developing robust server-side applications and APIs',
-                icon: Server,
-              },
-              {
-                title: 'Database Expertise',
-                description: 'Designing efficient database schemas and optimizing queries',
-                icon: Database,
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {personalInfo.skillsSummary.map((item, index) => {
+              const Icon = Icons[item.icon as keyof typeof Icons] as any || Code;
               return (
                 <Card key={index} className="glass-card text-center hover:scale-105 transition-transform">
                   <CardContent className="pt-6">

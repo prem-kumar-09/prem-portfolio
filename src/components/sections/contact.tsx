@@ -29,7 +29,7 @@ export function Contact() {
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/5 to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           variants={staggerContainer}
@@ -92,15 +92,21 @@ export function Contact() {
                   <div className="pt-4">
                     <h4 className="font-semibold mb-4">Connect With Me</h4>
                     <div className="flex gap-3">
-                      <Button variant="outline" size="icon" className="h-10 w-10 rounded-full">
-                        <Code2 className="h-5 w-5" />
-                      </Button>
-                      <Button variant="outline" size="icon" className="h-10 w-10 rounded-full">
-                        <Link2 className="h-5 w-5" />
-                      </Button>
-                      <Button variant="outline" size="icon" className="h-10 w-10 rounded-full">
-                        <Mail className="h-5 w-5" />
-                      </Button>
+                      <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="icon" className="h-10 w-10 rounded-full hover:bg-primary hover:text-white hover:border-transparent transition-all">
+                          <Code2 className="h-5 w-5" />
+                        </Button>
+                      </a>
+                      <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="icon" className="h-10 w-10 rounded-full hover:bg-primary hover:text-white hover:border-transparent transition-all">
+                          <Link2 className="h-5 w-5" />
+                        </Button>
+                      </a>
+                      <a href={`mailto:${personalInfo.email}`}>
+                        <Button variant="outline" size="icon" className="h-10 w-10 rounded-full hover:bg-primary hover:text-white hover:border-transparent transition-all">
+                          <Mail className="h-5 w-5" />
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </CardContent>

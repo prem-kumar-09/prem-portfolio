@@ -5,6 +5,7 @@ import { ArrowRight, Download, Mail, Sparkles, Code, Link2 } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
+import { personalInfo } from '@/data/portfolio';
 
 export function Hero() {
   return (
@@ -39,7 +40,7 @@ export function Hero() {
           <motion.div variants={fadeInUp} className="text-center relative">
             <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-extrabold mb-6 tracking-tight leading-[1.1]">
               <span className="text-foreground">Hi, I'm </span>
-              <span className="gradient-text drop-shadow-lg">Prem Kumar</span>
+              <span className="gradient-text drop-shadow-lg">{personalInfo.name}</span>
             </h1>
           </motion.div>
 
@@ -47,14 +48,14 @@ export function Hero() {
             variants={fadeInUp}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-center text-muted-foreground/80 tracking-wide"
           >
-            Full Stack <span className="text-foreground">Developer</span>
+            {personalInfo.role.split(' ').slice(0, -1).join(' ')} <span className="text-foreground">{personalInfo.role.split(' ').slice(-1)}</span>
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
             className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            I architect and develop high-performance web applications, scalable enterprise solutions, and immersive digital experiences that solve real-world problems.
+            {personalInfo.heroDescription}
           </motion.p>
 
           <motion.div
@@ -78,12 +79,7 @@ export function Hero() {
             animate="visible"
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl mx-auto"
           >
-            {[
-              { value: '1.5+', label: 'Years Experience' },
-              { value: '10+', label: 'Projects' },
-              { value: '15+', label: 'Technologies' },
-              { value: '100%', label: 'Commitment' },
-            ].map((stat, index) => (
+            {personalInfo.stats.map((stat, index) => (
               <motion.div
                 key={index}
                 variants={scaleIn}

@@ -5,13 +5,13 @@ import { GraduationCap, Briefcase, Award, Target, MapPin, Calendar } from 'lucid
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { fadeInUp, staggerContainer, slideInFromLeft, slideInFromRight } from '@/lib/animations';
-import { personalInfo } from '@/data/portfolio';
+import { personalInfo, experiences } from '@/data/portfolio';
 
 export function About() {
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           variants={staggerContainer}
@@ -40,17 +40,11 @@ export function About() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    I am a passionate Full Stack Developer with 1.5+ years of experience in building 
-                    scalable web applications and enterprise solutions. My expertise spans across modern 
-                    frontend technologies like React and Next.js, as well as robust backend systems 
-                    using C# and ASP.NET MVC.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    I thrive on solving complex problems and creating user-focused digital experiences 
-                    that make a real impact. Whether it's optimizing database performance or implementing 
-                    cutting-edge features, I bring dedication and attention to detail to every project.
-                  </p>
+                  {personalInfo.professionalSummary.map((para, idx) => (
+                    <p key={idx} className={`text-muted-foreground leading-relaxed ${idx !== personalInfo.professionalSummary.length - 1 ? 'mb-4' : ''}`}>
+                      {para}
+                    </p>
+                  ))}
                 </CardContent>
               </Card>
             </motion.div>
@@ -103,8 +97,8 @@ export function About() {
                         <GraduationCap className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-1">BE Electronics and Communication Engineering</h4>
-                        <p className="text-sm text-muted-foreground mb-2">Chennai, India</p>
+                        <h4 className="font-semibold mb-1">{personalInfo.education}</h4>
+                        <p className="text-sm text-muted-foreground mb-2">{personalInfo.location}</p>
                         <Badge variant="secondary">Graduated</Badge>
                       </div>
                     </div>
@@ -124,21 +118,23 @@ export function About() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Briefcase className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-1">Software Developer</h4>
-                        <p className="text-sm text-muted-foreground mb-2">Tech Company</p>
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <Calendar className="w-3 h-3" />
-                          <span>2023 - Present</span>
-                          <MapPin className="w-3 h-3 ml-2" />
-                          <span>Chennai, India</span>
+                    {experiences.slice(0, 1).map((exp, idx) => (
+                      <div key={idx} className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <Briefcase className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-1">{exp.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">{exp.company}</p>
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <Calendar className="w-3 h-3" />
+                            <span>{exp.period}</span>
+                            <MapPin className="w-3 h-3 ml-2" />
+                            <span>{exp.location}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -150,12 +146,7 @@ export function About() {
             variants={fadeInUp}
             className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
           >
-            {[
-              { label: 'Experience', value: '1.5+ Years' },
-              { label: 'Projects', value: '10+' },
-              { label: 'Technologies', value: '15+' },
-              { label: 'Location', value: 'Chennai' },
-            ].map((fact, index) => (
+            {personalInfo.quickFacts.map((fact, index) => (
               <Card key={index} className="glass-card text-center">
                 <CardContent className="pt-6">
                   <div className="text-2xl font-bold gradient-text mb-1">{fact.value}</div>

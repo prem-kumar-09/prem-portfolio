@@ -8,23 +8,23 @@ export const skills: Skill[] = [
   { name: 'React', level: 85, category: 'frontend', icon: 'Atom' },
   { name: 'Next.js', level: 80, category: 'frontend', icon: 'Zap' },
   { name: 'Bootstrap', level: 85, category: 'frontend', icon: 'Layout' },
-  
+
   // Backend
   { name: 'C#', level: 85, category: 'backend', icon: 'Code2' },
   { name: 'ASP.NET MVC', level: 80, category: 'backend', icon: 'Server' },
   { name: '.NET', level: 80, category: 'backend', icon: 'Layers' },
-  
+
   // Database
   { name: 'SQL Server', level: 85, category: 'database', icon: 'Database' },
   { name: 'PostgreSQL', level: 75, category: 'database', icon: 'Table' },
   { name: 'SSIS', level: 70, category: 'database', icon: 'GitMerge' },
-  
+
   // Tools
   { name: 'Git', level: 85, category: 'tools', icon: 'GitBranch' },
   { name: 'VS Code', level: 90, category: 'tools', icon: 'Code' },
   { name: 'Visual Studio', level: 85, category: 'tools', icon: 'Monitor' },
   { name: 'DBeaver', level: 75, category: 'tools', icon: 'Database' },
-  
+
   // Testing
   { name: 'Manual Testing', level: 80, category: 'testing', icon: 'CheckCircle' },
   { name: 'Authentication Testing', level: 75, category: 'testing', icon: 'Shield' },
@@ -194,5 +194,39 @@ export const personalInfo = {
   email: 'premkumar@example.com',
   linkedin: 'https://linkedin.com/in/premkumar',
   github: 'https://github.com/premkumar',
-  phone: '+91 98765 43210'
+  phone: '+91 98765 43210',
+  heroDescription: 'I architect and develop high-performance web applications, scalable enterprise solutions, and immersive digital experiences that solve real-world problems.',
+  professionalSummary: [
+    'I am a passionate Full Stack Developer with 1.5+ years of experience in building scalable web applications and enterprise solutions. My expertise spans across modern frontend technologies like React and Next.js, as well as robust backend systems using C# and ASP.NET MVC.',
+    'I thrive on solving complex problems and creating user-focused digital experiences that make a real impact. Whether it\'s optimizing database performance or implementing cutting-edge features, I bring dedication and attention to detail to every project.'
+  ],
+  stats: [
+    { value: '1.5+', label: 'Years Experience' },
+    { value: '10+', label: 'Projects' },
+    { value: '15+', label: 'Technologies' },
+    { value: '100%', label: 'Commitment' },
+  ],
+  quickFacts: [
+    { label: 'Experience', value: '1.5+ Years' },
+    { label: 'Projects', value: '10+' },
+    { label: 'Technologies', value: '15+' },
+    { label: 'Location', value: 'Chennai' },
+  ],
+  skillsSummary: [
+    {
+      title: 'Frontend Mastery',
+      description: 'Building responsive and performant user interfaces with modern frameworks',
+      icon: 'Code',
+    },
+    {
+      title: 'Backend Excellence',
+      description: 'Developing robust server-side applications and APIs',
+      icon: 'Server',
+    },
+    {
+      title: 'Database Expertise',
+      description: 'Designing efficient database schemas and optimizing queries',
+      icon: 'Database',
+    },
+  ]
 };
